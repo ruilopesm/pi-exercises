@@ -60,7 +60,7 @@ while (x != 11) {
 }
 printf ("%d %d\n", x, y)
 
-OUTPUT: 66
+OUTPUT: 11 66
 */
 
 /* Exercício 2.1 c)
@@ -106,52 +106,52 @@ OUTPUT:
 */
 
 // Exercício 3.1
-void quadrado (int n) {
+void quadrado(int n) {
     for (int i = 0; (i < n); i++) {
         for (int j = 0; (j < n); j++) {
-            putchar ('#');
+            putchar('#');
         }
-        putchar ('\n');
+        putchar('\n');
     }
 }
 
 // Exercício 3.2
-void tabuleiro (int n) {
+void tabuleiro(int n) {
     for (int i = 0; (i < n); i++) {
         for (int j = 0; (j < n); j++) {
             if ((i + j) % 2 == 0) {
-                putchar ('#');
+                putchar('#');
             }
             else {
-                putchar ('_');
+                putchar('_');
             }
         }
-        putchar ('\n');
+        putchar('\n');
     }
 }
 
 // Exercício 3.4
-int circulo () {
+int circulo() {
     int raio;
     int written = 0;
 
-    printf ("Raio: ");
-    scanf ("%d", &raio);
+    printf("Raio: ");
+    scanf("%d", &raio);
     
     for (int i = 0; i < 2 * raio + 1; i++) {
         for (int j = 0; j < 2 * raio + 1; j++) {
             int x = raio - i;
             int y = raio - j;
-            double dist = sqrt (x * x + y * y);
+            double dist = sqrt(x * x + y * y);
             if (dist <= raio) {
-                putchar ('#');
+                putchar('#');
                 written += 1;
             }        
             else {
-                putchar (' ');
+                putchar(' ');
             }
         }
-        putchar ('\n');
+        putchar('\n');
     }
     return written;
 }
