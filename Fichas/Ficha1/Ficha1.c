@@ -1,6 +1,6 @@
-# include <stdio.h>
-# include <stdlib.h>
-# include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 /* Exercício 1.1
 int x, y;
@@ -60,7 +60,7 @@ while (x != 11) {
 }
 printf ("%d %d\n", x, y)
 
-OUTPUT: 11 66
+OUTPUT: 66
 */
 
 /* Exercício 2.1 c)

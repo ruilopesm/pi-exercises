@@ -1,4 +1,4 @@
-# include <stdio.h>
+#include <stdio.h>
 
 void vertical(int n) {
     for (int i = 1; (i < 2 * n); i++) {
@@ -9,4 +9,8 @@ void vertical(int n) {
         }
         putchar('\n');
     }
+}
+
+int main() {
+    vertical(4);
 }
