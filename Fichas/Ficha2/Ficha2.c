@@ -7,6 +7,7 @@ float multInt1(int n, float m) {
     for (int i = 0; i < n; i++) {
         r += m;
     }
+    
     return r;
 }
 
@@ -21,6 +22,7 @@ float multInt2(int n, float m) {
         n /= 2;
         m *= 2;
     }
+    
     return r;
 }
 
@@ -29,11 +31,12 @@ int mdc1(int a, int b) {
     int r = 0;
     int n = (a > b) ? b : a;
 
-    for (int i = 1; i <= b; i++) {
+    for (int i = 1; i <= n; i++) {
         if (a % i == 0 && b % i == 0) {
             r = i;
         }
     }
+    
     return r;
 }
 
@@ -47,6 +50,7 @@ int mdc2(int a, int b) {;
             b -= a;
         }
     }
+    
     return a;
 }
 
@@ -60,6 +64,7 @@ int mdc3(int a, int b) {
             b %= a;
         }
     }
+    
     return a + b;
 }
 
@@ -76,11 +81,12 @@ int fib1(int n) {
 
 // b)
 int fib2(int n) {
-    int r = 1;
-
-    for (int fib0 = 1, fib1 = 1; n > 1; n--) {
-        fib0 = fib1;
-        fib1 = r; 
+    int a = 1, b = 1;
+    
+    for (int i = 2; i != n; i++) {
+        b += a;
+        a = b - a;
     }
-    return r;
+
+    return b;
 }
