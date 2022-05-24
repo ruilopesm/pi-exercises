@@ -93,12 +93,12 @@ void merge(int a[], int na, int b[], int nb, int r[]) {
     // Elementos que sobram (apenas um destes loops irá rodar)
     for (; i < na; i++) {
         r[k] = a[i];
-        i++;
+        k++;
     }
 
     for (; j < nb; j++) {
         r[k] = b[j];
-        j++;
+        k++;
     }
 }
 
