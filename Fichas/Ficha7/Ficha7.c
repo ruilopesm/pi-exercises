@@ -20,10 +20,11 @@ void libertaLista(Palavras l) {
 
 // Exercício 2
 int quantasP(Palavras l) {
+    Palavras aux = l;
     int counter = 0;
 
-    while (l != NULL) {
-        l = l->prox;
+    while (aux != NULL) {
+        aux = aux->prox;
         counter++;
     }
 
