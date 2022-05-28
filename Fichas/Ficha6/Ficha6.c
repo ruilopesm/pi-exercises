@@ -76,8 +76,8 @@ int Senqueue(SQueue q, int x) {
         return 1;
     }
 
+    q->values[(q->front + q->length) % Max] = x;
     q->length++;
-    q->values[q->front + q->length] = x;
 
     return 0;
 }
@@ -194,8 +194,8 @@ int Denqueue(DQueue q, int x) {
         q->size *= 2;
     }
 
+    q->values[(q->front + q->length) % Max] = x;
     q->length++;
-    q->values[q->front + q->length] = x;
 
     return 0;
 }
