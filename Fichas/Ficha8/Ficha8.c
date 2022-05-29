@@ -112,7 +112,7 @@ int dequeue(Queue *q, int *x) {
     return 0;
 }
 
-int front(Queue q, int *x) {
+int frontQ(Queue q, int *x) {
     if (QisEmpty(q)) {
         return 1;
     }
@@ -129,12 +129,12 @@ void initQueueC(QueueC *q) {
     (*q) = NULL;
 }
 
-int QCisEmpty(QueueC q) {
+int QisEmptyC(QueueC q) {
     return q == NULL;
 }
 
 int enqueueC(QueueC *q, int x) {
-    if (QCisEmpty(*q)) {
+    if (QisEmptyC(*q)) {
         (*q) = newLInt(x, NULL);
 
         if ((*q) == NULL) {
@@ -150,15 +150,21 @@ int enqueueC(QueueC *q, int x) {
             return 1;
         }
 
-        new->prox = (*q)->prox;
-        (*q) = new;
+        QueueC temp = (*q);
+        
+        while (temp != (*q)->prox) {
+            q = &((*q)->prox);
+        }
+
+        new->prox = temp;
+        (*q)->prox = new;
     }
 
     return 0;
 }
 
 int dequeueC(QueueC *q, int *x) {
-    if (QCisEmpty(*q)) {
+    if (QisEmptyC(*q)) {
         return 1;
     }
 
@@ -178,7 +184,7 @@ int dequeueC(QueueC *q, int *x) {
 }
 
 int frontC(QueueC q, int *x) {
-    if (QCisEmpty(q)) {
+    if (QisEmptyC(q)) {
         return 1;
     }
 
@@ -237,6 +243,10 @@ int pushBack(Deque *q, int x) {
 int pushFront(Deque *q, int x) {
     DList new = newDList(x, q->front);
 
+    if (new == NULL) {
+        return 1;
+    }
+
     if (q->front == NULL) {
         q->back = new;
     }
@@ -245,6 +255,8 @@ int pushFront(Deque *q, int x) {
     }
 
     q->front = new;
+
+    return 0;
 }
 
 int popBack(Deque *q, int *x) {
@@ -283,6 +295,8 @@ int popFront(Deque *q, int *x) {
     else {
         q->back = NULL;
     }
+
+    return 0;
 }
 
 int popMax(Deque *q, int *x) {
