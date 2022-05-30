@@ -33,7 +33,7 @@ int altura(ABin a) {
     }
     
     if (a->esq == NULL && a->dir == NULL) {
-        return 1;
+        return 0;
     }
     else {
         return 1 + max(altura(a->esq), altura(a->dir));
