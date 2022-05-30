@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include <ctype.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -9,7 +9,7 @@ int eVogal(char s) {
     if (s == 'a' || s == 'e' || s == 'i' || s == 'o' || s == 'u') {
         return 1;
     }
-    
+
     return 0;
 }
 
@@ -21,12 +21,12 @@ int contaVogais(char *s) {
             total++;
         }
     }
-    
+
     return total;
 }
 
 // Exercício 1.2
-void delete(char *s, int pos) {
+void delete (char *s, int pos) {
     for (int i = pos; s[i] != '\0'; i++) {
         s[i] = s[i + 1];
     }
@@ -35,34 +35,37 @@ void delete(char *s, int pos) {
 int retiraVogaisRep(char *s) {
     int counter = 0;
 
-    for (int i = 0; s[i] != '\0'; ) {
+    for (int i = 0; s[i] != '\0';) {
         if (s[i] == s[i + 1]) {
-            delete(s, i);
+            delete (s, i);
             counter++;
-        }
-        else {
+        } else {
             i++;
         }
     }
-    
+
     return counter;
 }
 
 // Exercício 1.3
 int duplicaVogais(char *s) {
-    int r = strlen(s) - 1;
-    int w = strlen(s) + contaVogais(s);
-    
-    s[w--] = '\0';
+    int len = strlen(s);
+    int counter = 0;
 
-    for (; s[r] == s[w]; r++) {
-        if (eVogal(s[r])) {
-            s[w--] = s[r];
-            s[w--] = s[r];
+    for (; *s != '\0'; s++) {
+        if (eVogal(*s)) {
+            for (int i = len++; i > 0; i--) {
+                s[i] = s[i - 1];
+            }
+
+            counter++;
+            s++;
         }
+
+        len--;
     }
 
-    return w - r;
+    return counter;
 }
 
 // Exercício 2.1
@@ -83,8 +86,7 @@ void merge(int a[], int na, int b[], int nb, int r[]) {
         if (a[i] < b[j]) {
             r[k] = a[i];
             i++;
-        }
-        else {
+        } else {
             r[k] = b[j];
             j++;
         }
