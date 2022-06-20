@@ -26,25 +26,25 @@ int contaVogais(char *s) {
 }
 
 // Exercício 1.2
-void delete (char *s, int pos) {
-    for (int i = pos; s[i] != '\0'; i++) {
-        s[i] = s[i + 1];
+void delete(char *s, int pos) {
+    for ( ; s[pos] != '\0'; pos++) {
+        s[pos] = s[pos + 1];
     }
 }
 
 int retiraVogaisRep(char *s) {
-    int counter = 0;
+    int i = 0;
 
-    for (int i = 0; s[i] != '\0';) {
+    for ( ; s[i] != '\0'; ) {
         if (s[i] == s[i + 1]) {
-            delete (s, i);
-            counter++;
-        } else {
+            delete(s, i);
+        } 
+        else {
             i++;
         }
     }
 
-    return counter;
+    return i;
 }
 
 // Exercício 1.3
@@ -86,7 +86,8 @@ void merge(int a[], int na, int b[], int nb, int r[]) {
         if (a[i] < b[j]) {
             r[k] = a[i];
             i++;
-        } else {
+        } 
+        else {
             r[k] = b[j];
             j++;
         }
